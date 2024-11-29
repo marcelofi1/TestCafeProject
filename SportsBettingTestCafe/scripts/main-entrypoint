@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# run npm scripts with options passed to docker
+npm run "$@"

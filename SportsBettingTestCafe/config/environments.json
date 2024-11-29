@@ -1,0 +1,25 @@
+{
+  "dev": {
+    "siteUrl": "https://sb.dev.pposervices.local"
+  },
+  "qa": {
+    "siteUrl": "https://sb.qa.pposervices.local",
+    "cardNumber": "4000000000001091",
+    "sportsbookUrl": "https://sas-sb.qa.itsops.net",
+    "liveBettingUrl": "https://sas-sb.qa.itsops.net/sportsbook/live",
+    "classicSite": "https://classic-sb.qa.pposervices.local/sportsbook"
+  },
+  "ppd": {
+    "siteUrl": "https://ppd.sportsbetting.ag",
+    "cardNumber": "4111111111111111",
+    "sportsbookUrl": "https://ppd-sports.sportsbetting.ag",
+    "liveBettingUrl": "https://ppd-sports.sportsbetting.ag/sportsbook/live/sport",
+    "classicSite": "https://ppdclassic.sportsbetting.ag/sportsbook"
+  },
+  "prod": {
+    "siteUrl": "https://www.sportsbetting.ag",
+    "sportsbookUrl": "https://sports.sportsbetting.ag",
+    "liveBettingUrl": "https://sports.sportsbetting.ag/sportsbook/live/sport",
+    "classicSite": "https://classic.sportsbetting.ag/sportsbook"
+  }
+}

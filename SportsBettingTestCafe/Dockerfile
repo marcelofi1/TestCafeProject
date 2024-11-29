@@ -1,0 +1,32 @@
+FROM node:gallium-slim
+
+USER root
+
+WORKDIR /tests
+# Install updates & curl
+RUN apt-get update && apt-get install -y curl wget gnupg gnupg2 gnupg1 unzip
+# Install procps for the 'ps' command
+RUN apt-get install -y procps
+# Install chrome
+RUN apt-get update && apt-get install -y \
+  apt-transport-https \
+  ca-certificates \
+  curl \
+  gnupg \
+  hicolor-icon-theme \
+  libcanberra-gtk* \
+  libgl1-mesa-dri \
+  libgl1-mesa-glx \
+  libpangox-1.0-0 \
+  libpulse0 \
+  libv4l-0 \
+  fonts-symbola \
+  --no-install-recommends
+RUN curl -L https://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/google-chrome-stable_121.0.6167.139-1_amd64.deb -o google-chrome-stable_current_amd64.deb -v 
+RUN apt-get install -y ./google-chrome-stable_current_amd64.deb
+COPY . .
+RUN npm install -g npm@9.8.1
+WORKDIR /tests/sportsbetting-qa
+RUN npm install
+RUN ["chmod", "+x", "/tests/sportsbetting-qa/scripts/main-entrypoint"]
+ENTRYPOINT ["/tests/sportsbetting-qa/scripts/main-entrypoint"]

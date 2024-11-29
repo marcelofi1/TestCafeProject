@@ -1,0 +1,25 @@
+FROM node:gallium-slim
+
+USER root
+
+WORKDIR /tests
+# Install updates & curl
+RUN apt-get update && apt-get install -y curl wget gnupg gnupg2 gnupg1 unzip
+# Install chromium
+RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y \
+  chromium \
+  && rm -rf /var/cache/debconf/*-old \
+  && rm -rf /usr/share/doc/* \
+  && rm -rf /var/lib/apt/lists/* \
+  && rm -rf /var/cache/apt/*
+# Install firefox
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  ca-certificates curl firefox-esr           \
+  && rm -fr /var/lib/apt/lists/*                \
+  && curl -L https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz | tar xz -C /usr/local/bin \
+  && apt-get purge -y ca-certificates curl
+COPY . .
+WORKDIR /tests/sportsbetting-qa
+RUN npm install
+RUN ["chmod", "+x", "/tests/sportsbetting-qa/scripts/main-entrypoint"]
+ENTRYPOINT ["/tests/sportsbetting-qa/scripts/main-entrypoint"]

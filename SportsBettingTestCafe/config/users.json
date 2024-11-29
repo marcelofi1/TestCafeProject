@@ -1,0 +1,18 @@
+{
+  "dev": {
+    "username": "SB628576",
+    "password": "QWExMjM0NTY="
+  },
+  "qa": {
+    "username": "SB1456395",
+    "password": "QWExMjM0NTY="
+  },
+  "ppd": {
+    "username": "SB1005802",
+    "password": "QWExMjM0NTY="
+  },
+  "prod": {
+    "username": "SB1096827",
+    "password": "QWExMjM0NTY="
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "sportsbetting-qa",
+  "version": "2.0.0",
+  "description": "Repository for Sports Betting automation using TestCafe",
+  "main": "index.js",
+  "scripts": {
+    "banking": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/bankingPage.ts features/bankingPage.feature --tags @desktop,~@$env --reporter html:/tests/sportsbetting-qa/reports/desktop.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/bankingPage.ts features/bankingPage.feature --tags @mobile,~@$env --reporter html:/tests/sportsbetting-qa/reports/mobile.html",
+    "contests": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/contestsPage.ts features/contestsPage.feature --tags @desktop --reporter html:/tests/sportsbetting-qa/reports/desktop.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/contestsPage.ts features/contestsPage.feature --tags @mobile --reporter html:/tests/sportsbetting-qa/reports/mobile.html",
+    "critical": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/*.ts features/*.feature --tags @critical-cd --reporter html:/tests/sportsbetting-qa/reports/desktop.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/*.ts features/*.feature --tags @critical-cd --reporter html:/tests/sportsbetting-qa/reports/mobile.html",
+    "critical-sportsbook": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/*.ts features/*.feature --tags @critical-desktop --reporter html:/tests/sportsbetting-qa/reports/desktop-Sportsbook.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/*.ts features/*.feature --tags @critical-mobile --reporter html:/tests/sportsbetting-qa/reports/mobile-Sportsbook.html",
+    "critical-cd": "npm run critical-sportsbook && npm run critical",
+    "footer": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/footerComponent.ts features/footerComponent.feature --tags @desktop --reporter html:/tests/sportsbetting-qa/reports/desktop.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/footerComponent.ts features/footerComponent.feature --tags @mobile --reporter html:/tests/sportsbetting-qa/reports/mobile.html",
+    "header": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/headerComponent.ts features/headerComponent.feature --tags @desktop,~@ignore --reporter html:/tests/sportsbetting-qa/reports/desktop.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/headerComponent.ts features/headerComponent.feature --tags @mobile,~@ignore --reporter html:/tests/sportsbetting-qa/reports/mobile.html",
+    "home": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/homePage.ts features/homePage.feature --tags @desktop,~@ignore --reporter html:/tests/sportsbetting-qa/reports/desktop.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/homePage.ts features/homePage.feature --tags @mobile,~@ignore --reporter html:/tests/sportsbetting-qa/reports/mobile.html",
+    "promo-Carousel": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/carouselComponent.ts features/carouselComponent.feature --tags @desktop,~@$env --reporter html:/tests/sportsbetting-qa/reports/desktop.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/carouselComponent.ts features/carouselComponent.feature --tags @mobile,~@$env --reporter html:/tests/sportsbetting-qa/reports/mobile.html",
+    "promo-Card": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/promotionsCardContentsPage.ts features/promotionsCardContentsPage.feature --tags @desktop,~@$env --reporter html:/tests/sportsbetting-qa/reports/desktop.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/promotionsCardContentsPage.ts features/promotionsCardContentsPage.feature --tags @mobile,~@$env --reporter html:/tests/sportsbetting-qa/reports/mobile.html",
+    "promotion": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/promotionsPage.ts features/promotionsPage.feature --tags @desktop,~@$env --reporter html:/tests/sportsbetting-qa/reports/desktop.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/promotionsPage.ts features/promotionsPage.feature --tags @mobile,~@$env --reporter html:/tests/sportsbetting-qa/reports/mobile.html",
+    "poker": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/pokerPage.ts features/pokerPage.feature --tags @desktop,~@$env --reporter html:/tests/sportsbetting-qa/reports/desktop.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/pokerPage.ts features/pokerPage.feature --tags @mobile,~@$env --reporter html:/tests/sportsbetting-qa/reports/mobile.html",
+    "pokerdownload": "gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/downloadPage.ts features/downloadPage.feature --tags @mobile --reporter html:/tests/sportsbetting-qa/reports/mobile.html",
+    "racebook": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/racebookPage.ts features/racebookPage.feature --tags @desktop --reporter html:/tests/sportsbetting-qa/reports/desktop.html",
+    "redirect": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/redirect.ts features/redirect.feature --tags @desktop --reporter html:/tests/sportsbetting-qa/reports/desktop.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/redirect.ts features/redirect.feature --tags @mobile --reporter html:/tests/sportsbetting-qa/reports/mobile.html",
+    "refer-Friend": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/referAFriendPage.ts features/referAFriendPage.feature --tags @desktop,~@$env --reporter html:/tests/sportsbetting-qa/reports/desktop.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/referAFriendPage.ts features/referAFriendPage.feature --tags @mobile,~@$env --reporter html:/tests/sportsbetting-qa/reports/mobile.html",
+    "regression": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/*.ts features/*.feature --tags @regression-desktop,~@ignore --reporter html:/tests/sportsbetting-qa/reports/desktop.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/*.ts features/*.feature --tags @regression-mobile,~@ignore --reporter html:/tests/sportsbetting-qa/reports/mobile.html",
+    "sportsbook": "gherkin-testcafe 'chrome:headless --no-sandbox' step-definitions/sportsbookPage.ts features/sportsbookPage.feature --tags @desktop --reporter html:/tests/sportsbetting-qa/reports/desktop.html && gherkin-testcafe \"browserstack:iPhone 14\" step-definitions/sportsbookPage.ts features/sportsbookPage.feature --tags @mobile --reporter html:/tests/sportsbetting-qa/reports/mobile.html"
+  },
+  "author": "Websites Avengers",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.6.2",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@browserstack/testcafe": "^1.8.6",
+    "@cucumber/cucumber": "^10.7.0",
+    "@faker-js/faker": "^8.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "cucumber": "^6.0.5",
+    "eslint": "^8.19.0",
+    "gherkin-testcafe": "^7.2.0",
+    "multiple-cucumber-html-reporter": "^1.21.4",
+    "testcafe": "^2.5.0",
+    "testcafe-browser-provider-browserstack": "^1.15.2",
+    "testcafe-reporter-html": "^1.4.6"
+  }
+}
